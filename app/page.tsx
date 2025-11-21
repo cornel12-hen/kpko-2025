@@ -1,20 +1,28 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function LandingPage() {
   return (
-    <div className="font-jersey w-full max-w-md bg-white p-8 rounded-xl shadow-2xl text-center">
-      <h1 className="text-4xl text-[#003566] mb-4">
-        E-Voting KETOS 2024
+    <div className="font-jersey w-full max-w-md p-8 text-center">
+      <h1 className="text-7xl max-sm:text-5xl text-[#003566]">
+        E-KPKO 2025
       </h1>
-      <p className="text-gray-600 mb-8">
-        Selamat datang di platform pemilihan ketua OSIS daring. Gunakan NISN dan Token Anda untuk memberikan suara.
+      <p className="text-[#000814] mb-8 text-xl/5">
+        Young Leaders, Bright Future
       </p>
       
       <Link 
         href="/login"
-        className="w-full inline-block py-3 px-6 bg-[#003566] text-white rounded-lg shadow-md hover:bg-[#003566] transition duration-300 transform hover:scale-105"
+        className="w-full flex flex-col justify-center items-center py-3 px-6 text-[#000814]"
       >
-        Mulai Voting (Masuk)
+        <Image
+          src="/images/Exe.svg"
+          alt="FolderIcon"
+          width={48}
+          height={48}
+          className='transition duration-300 transform hover:scale-105'
+        />
+        <p className='text-sm mt-1'>E-KPKO 2025.exe</p>
       </Link>
     </div>
   );

@@ -1,21 +1,18 @@
 // components/LogoutButton.tsx
 'use client';
 
-import { createBrowserClient } from '@/lib/client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { X } from 'lucide-react';
 
 export default function LogoutButton() {
   const router = useRouter();
-  const supabase = createBrowserClient();
   const [loading, setLoading] = useState(false);
 
   const handleLogout = async () => {
     setLoading(true);
-    await supabase.auth.signOut();
     router.refresh();
-    router.replace('/login');
+    router.replace('/');
   };
 
   return (
