@@ -134,11 +134,11 @@ export default function VotingList({ kandidat, siswa }: { kandidat: Kandidat[], 
               <div className="space-y-4 grow px-6 pb-4">
                 <div>
                   <h3 className="text-lg text-[#003566]">Visi:</h3>
-                  <p className="text-sm text-gray-700">{k.visi}</p>
+                  <p className="text-sm/4 text-gray-700 whitespace-pre-wrap">{k.visi}</p>
                 </div>
                 <div>
                   <h3 className="text-lg text-[#003566]">Misi:</h3>
-                  <p className="text-sm text-gray-700 whitespace-pre-wrap">{k.misi}</p>
+                  <p className="text-sm/4 text-gray-700 whitespace-pre-wrap">{k.misi}</p>
                 </div>
               </div>
             </div>
