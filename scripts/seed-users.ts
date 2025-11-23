@@ -33,7 +33,7 @@ type CsvRow = {
 
 async function seedUsers() {
   // 3. Baca File CSV
-  const csvFilePath = path.resolve(process.cwd(), 'DataKPKO2025_Tes.csv'); // Pastikan nama file sesuai
+  const csvFilePath = path.resolve(process.cwd(), 'DataKPKO_AllSiswa.csv'); // Pastikan nama file sesuai
   
   if (!fs.existsSync(csvFilePath)) {
     console.error(`❌ File tidak ditemukan: ${csvFilePath}`);
