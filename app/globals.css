@@ -35,3 +35,70 @@ body {
     font-family: var(--font-jersey), sans-serif;
   }
 }
+
+@layer utilities {
+  .pixel-corners {
+    border: none; 
+    
+    box-shadow: 
+      /* Kiri */
+      -4px 0 0 0 #003566, 
+      /* Kanan */
+      6px 0 0 0 #003566, 
+      /* Atas */
+      0 -4px 0 0 #003566, 
+      /* Bawah */
+      0 6px 0 0 #003566;
+  }
+
+  .pixel-corners-sm {
+    border: none; 
+    
+    box-shadow: 
+      /* Kiri */
+      -2px 0 0 0 #003566, 
+      /* Kanan */
+      3px 0 0 0 #003566, 
+      /* Atas */
+      0 -2px 0 0 #003566, 
+      /* Bawah */
+      0 3px 0 0 #003566;
+  }
+
+  .pixel-corners-yellow {
+    border: none;
+    box-shadow: 
+      -4px 0 0 0 #000814,
+      4px 0 0 0 #000814, 
+      0 -4px 0 0 #000814, 
+      0 4px 0 0 #000814;
+  }
+
+  .shadow-solid-sm {
+    box-shadow: 1px 1px 0 0 #003566;
+  }
+  
+  .shadow-solid-sm-dark {
+    box-shadow: 1px 1px 0 0 #000814;
+  }
+
+    .shadow-solid-md {
+    box-shadow: 2px 2px 0 0 #00284d;
+  }
+  
+  .shadow-solid-md-dark {
+    box-shadow: 2px 2px 0 0 #000814;
+  }
+
+  .shadow-solid-b {
+    box-shadow: 0px 4px 0 0 #001529;
+  }
+
+  .shadow-solid-b-sm {
+    box-shadow: 0px 1px 0 0 #001529;
+  }
+
+  button {
+    touch-action: manipulation;
+  }
+}

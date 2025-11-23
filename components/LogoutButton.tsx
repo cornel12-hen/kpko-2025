@@ -19,11 +19,11 @@ export default function LogoutButton() {
   };
 
   return (
-    <div className='h-6 w-6 hover:outline hover:outline-white active:outline active:outline-white rounded-sm'>
+    <div className='h-6 w-6 rounded-sm'>
       <button
         onClick={handleLogout}
         disabled={loading}
-        className="p-0.5 h-6 bg-red-600 border-2 border-[#003566] rounded-sm text-white text-sm font-bold hover:bg-red-700 transition shadow-md disabled:opacity-70"
+        className="p-0.5 h-6 bg-red-600 shadow-solid-sm active:shadow-none active:translate-px hover:shadow-none hover:translate-px border-2 border-[#002a51] rounded-sm text-white text-sm font-bold hover:bg-red-700 transition shadow-md disabled:opacity-70"
       >
         {loading ? <X className='inset-shadow-2xs size-4'/> : <X className='size-4'/>}
       </button>

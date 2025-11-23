@@ -115,16 +115,16 @@ export default function VotingList({ kandidat, siswa }: { kandidat: Kandidat[], 
               <div className="inline-block w-12 h-12 rounded-full bg-[#FFD60A] text-[#000814] font-bold text-2xl leading-12 shadow-lg">{k.nomor_urut}</div>
             </div>
 
-            <div className="relative w-full h-64 bg-gray-200 overflow-clip">
+            <div className="relative w-full h-80 max-sm:h-80 max-lg:h-96 bg-gray-200 overflow-clip">
               {k.foto_url ? 
-                <Image src={k.foto_url} alt={`Kandidat ${k.nomor_urut}`} fill className="object-cover object-top -rotate-90" /> 
+                <Image src={k.foto_url} alt={`Kandidat ${k.nomor_urut}`} fill className="object-cover object-[center_40%] max-sm:object-[center_35%] max-lg:object-[center_35%]" /> 
                 : 
                 <div className="flex items-center justify-center h-full text-gray-400">No Image</div>
               }
             </div>
 
             <div className="grow flex flex-col text-[#000814]">
-              <div className="text-center my-4 border-b border-gray-200 pb-4">
+              <div className="text-center my-4 mt-3 border-b border-gray-200 pb-4">
                 <p className="text-sm text-gray-500">Ketua</p>
                 <h2 className="text-xl/5 uppercase mb-3">{k.nama_ketua}</h2>
                 <p className="text-sm text-gray-500">Wakil Ketua</p>
@@ -138,7 +138,17 @@ export default function VotingList({ kandidat, siswa }: { kandidat: Kandidat[], 
                 </div>
                 <div>
                   <h3 className="text-lg text-[#003566]">Misi:</h3>
-                  <p className="text-sm/4 text-gray-700 whitespace-pre-wrap">{k.misi}</p>
+                  {k.misi ? (
+                    <ol className="list-decimal list-outside pl-5 space-y-1 text-sm/4 text-gray-700">
+                      {k.misi.split('\n').filter(line => line.trim() !== '').map((item, index) => (
+                        <li key={index}>
+                          {item.replace(/^[0-9-]+\.\s*/, '')} 
+                        </li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <p className="text-sm text-gray-400 italic">Tidak ada data misi</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -152,12 +162,12 @@ export default function VotingList({ kandidat, siswa }: { kandidat: Kandidat[], 
                 <button
                   onClick={() => initiateVote(k.id, k.nomor_urut)}
                   disabled={loadingId !== null}
-                  className={`w-full py-4 rounded-xl text-lg uppercase tracking-wider transition transform active:scale-95 ${
+                  className={`w-full py-4 rounded-md text-lg uppercase tracking-wider transition transform active:scale-95 ${
                     loadingId === k.id
                       ? "bg-gray-400 cursor-not-allowed text-white"
                       : loadingId !== null
                       ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      : "bg-[#003566] text-white hover:bg-[#00284d] hover:cursor-pointer"
+                      : "bg-[#003566] text-white hover:translate-y-1 shadow-solid-b hover:shadow-none hover:bg-[#00284d] hover:cursor-pointer"
                   }`}
                 >
                   {loadingId === k.id ? "Merekam Suara..." : `Pilih Paslon ${k.nomor_urut}`}

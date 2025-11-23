@@ -1,9 +1,31 @@
-import Link from 'next/link';
+'use client';
+
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function LandingPage() {
+  const router = useRouter();
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleSingleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsSelected(true);
+  };
+
+  const handleDoubleClick = () => {
+    router.push('/login');
+  };
+
+  const handleOutsideClick = () => {
+    setIsSelected(false);
+  };
+
   return (
-    <div className="font-jersey w-full max-w-md p-8 text-center">
+    <div 
+      className="font-jersey w-full h-full min-h-screen flex flex-col items-center justify-center p-8 text-center"
+      onClick={handleOutsideClick}
+    >
       <h1 className="text-7xl max-sm:text-5xl text-[#003566]">
         E-KPKO 2025
       </h1>
@@ -11,19 +33,33 @@ export default function LandingPage() {
         Young Leaders, Bright Future
       </p>
       
-      <Link 
-        href="/login"
-        className="w-full flex flex-col justify-center items-center py-3 px-6 text-[#000814]"
+      <div 
+        onClick={handleSingleClick}
+        onDoubleClick={handleDoubleClick}
+        className={`
+          w-auto flex flex-col justify-center items-center py-3 px-4 text-[#000814]
+          cursor-pointer rounded-sm
+          transition duration-200
+          ${isSelected 
+            ? 'bg-[#003566]/10 border-none'
+            : 'hover:bg-[#003566]/5'
+          }
+        `}
       >
-        <Image
-          src="/images/Exe.svg"
-          alt="FolderIcon"
-          width={48}
-          height={48}
-          className='transition duration-300 transform hover:scale-105'
-        />
-        <p className='text-sm mt-1'>E-KPKO 2025.exe</p>
-      </Link>
+        <div className={`transition duration-300 transform ${isSelected ? '' : 'hover:scale-105'}`}>
+          <Image
+            src="/images/Exe.svg"
+            alt="FolderIcon"
+            width={48}
+            height={48}
+            className="pointer-events-none select-none" 
+          />
+        </div>
+        
+        <p className={`text-sm mt-1 px-1}`}>
+          E-KPKO 2025.exe
+        </p>
+      </div>
     </div>
   );
 }

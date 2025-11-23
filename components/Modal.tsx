@@ -55,7 +55,7 @@ export default function Modal({
           <button 
             onClick={onCancel}
             disabled={isLoading}
-            className="w-6 h-6 flex items-center justify-center bg-red-500 hover:bg-red-600 text-white font-bold rounded-sm border-[1.5px] border-[#003566] leading-none"
+            className="w-6 h-6 flex items-center shadow-solid-sm hover:shadow-none hover:translate-y-px justify-center bg-red-500 hover:bg-red-600 text-white font-bold rounded-sm border-2 border-[#003566] leading-none"
           >
             <X className='size-4'/>
           </button>
@@ -73,7 +73,7 @@ export default function Modal({
                 <button
                   onClick={onCancel}
                   disabled={isLoading}
-                  className="px-6 py-2 rounded-sm border-2 border-[#003566] text-[#003566] font-bold hover:bg-gray-200 transition disabled:opacity-50 uppercase tracking-wide"
+                  className="px-6 py-2 shadow-solid-b hover:shadow-none hover:translate-y-1 rounded-sm border-3 border-[#003566] text-[#003566] font-bold hover:bg-gray-200 transition disabled:opacity-50 uppercase tracking-wide"
                 >
                   Batal
                 </button>
@@ -81,7 +81,7 @@ export default function Modal({
                 <button
                   onClick={onConfirm}
                   disabled={isLoading}
-                  className="px-6 py-2 rounded-sm bg-[#003566] border-2 border-[#003566] text-white font-bold hover:bg-[#00284d] transition shadow-sm disabled:opacity-70 flex items-center gap-2 uppercase tracking-wide"
+                  className="px-6 py-2 shadow-solid-b hover:shadow-none hover:translate-y-1 rounded-sm bg-[#003566] border-2 border-[#003566] text-white font-bold hover:bg-[#00284d] hover:border-[#00284d] transition shadow-sm disabled:opacity-70 flex items-center gap-2 uppercase tracking-wide"
                 >
                   {isLoading ? '...' : 'Ya, Pilih'}
                 </button>
@@ -89,7 +89,7 @@ export default function Modal({
             ) : (
               <button
                 onClick={onConfirm}
-                className="w-full py-2 rounded-sm bg-[#003566] border-2 border-[#003566] text-white font-bold hover:bg-[#00284d] transition uppercase tracking-wide"
+                className="w-full py-2 shadow-solid-b hover:shadow-none hover:translate-y-1 rounded-sm bg-[#003566] border-2 border-[#003566] text-white font-bold hover:bg-[#00284d] transition uppercase tracking-wide"
               >
                 Tutup
               </button>

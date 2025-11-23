@@ -3,6 +3,7 @@ import { Jersey_15 } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import { Suspense } from "react";
+import Taskbar from "@/components/Taskbar";
 
 const jersey15 = Jersey_15({
   variable: "--font-jersey",
@@ -23,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jersey15.variable} font-jersey antialiased`}>
+      <body className={`${jersey15.variable} font-jersey antialiased bg-white select-none`}>
         <div className="relative flex justify-center items-center w-full min-h-screen overflow-hidden font-sans">
           <div className="fixed inset-0 -z-10 select-none">
             <Image
@@ -83,6 +84,8 @@ export default function RootLayout({
           </div>
 
           {children}
+
+          <Taskbar/>
         </div>
       </body>
     </html>
