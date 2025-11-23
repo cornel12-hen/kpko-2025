@@ -101,4 +101,39 @@ body {
   button {
     touch-action: manipulation;
   }
+
+  @keyframes float-y {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-float {
+    animation: float-y 3s ease-in-out infinite;
+  }
+  
+  .animate-float-delay {
+    animation: float-y 4s ease-in-out 2s infinite;
+  }
+
+  @keyframes rotate-loop {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: rotate-loop 12s linear infinite;
+  }
+  
+  .animate-spin-slower {
+    animation: rotate-loop 20s linear infinite;
+  }
+
+  @keyframes scale-up-down {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.10); }
+  }
+
+  .animate-pulse-scale {
+    animation: scale-up-down 3s ease-in-out infinite;
+  }
 }

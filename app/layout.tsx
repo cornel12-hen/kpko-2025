@@ -44,14 +44,14 @@ export default function RootLayout({
               alt="Element1"
               width={250}
               height={250}
-              className="absolute top-[-12%] right-[-7%] max-lg:hidden"
+              className="absolute top-[-12%] right-[-7%] max-lg:hidden animate-spin-slower"
             />
             <Image
               src="/images/Clip path group-1.svg"
               alt="Element1"
               width={250}
               height={250}
-              className="absolute top-[-18%] left-[-10%] max-lg:hidden"
+              className="absolute top-[-18%] left-[-10%] max-lg:hidden animate-spin-slower"
             />
             <Image
               src="/images/Group 128.svg"
@@ -72,14 +72,14 @@ export default function RootLayout({
               alt="Element1"
               width={150}
               height={150}
-              className="absolute top-[40%] right-[15%] max-lg:hidden"
+              className="absolute top-[40%] right-[15%] max-lg:hidden animate-float"
             />
             <Image
               src="/images/Star.svg"
               alt="Element1"
               width={150}
               height={150}
-              className="absolute top-[35%] left-[12%] max-lg:hidden"
+              className="absolute top-[35%] left-[12%] max-lg:hidden animate-float"
             />
           </div>
 

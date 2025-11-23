@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 
 export default function LandingPage() {
   const router = useRouter();
@@ -59,6 +60,10 @@ export default function LandingPage() {
         <p className={`text-sm mt-1 px-1}`}>
           E-KPKO 2025.exe
         </p>
+      </div>
+      <div className='mt-2 text-sm flex flex-col items-center'>
+        <ArrowUp className='stroke-[#a5a5a5] animate-float'/>
+        <p className='mt-1 text-sm text-[#a5a5a5] animate-pulse-scale'>Klik 2 kali ya!</p>
       </div>
     </div>
   );

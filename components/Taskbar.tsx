@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Jersey_15 } from "next/font/google";
 import AboutWindow from './AboutWindow';
 import Image from 'next/image';
@@ -15,9 +15,9 @@ export default function Taskbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [time, setTime] = useState<string>("");
 
-  // Logic Jam Digital (Hanya jalan di client agar tidak hydration error)
+  const startMenuRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    // Set waktu awal
     setTime(new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }));
 
     const interval = setInterval(() => {
@@ -27,13 +27,29 @@ export default function Taskbar() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isOpen && startMenuRef.current && !startMenuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <div className={`${jersey15.variable} font-jersey`}>
       <nav className="fixed left-0 right-0 z-40 bg-[#f5f5f5] border-y-2 border-[#003566] h-12 px-2 flex justify-between items-center shadow-lg
         max-md:top-0 max-md:border-t-0 max-md:border-b-2
         md:bottom-0 md:border-t-2 md:border-b-0
       ">
-        <div className="relative h-full flex items-center">
+        <div ref={startMenuRef} className="relative h-full flex items-center">
             <button 
             onClick={() => setIsOpen(!isOpen)}
             className={`
@@ -43,7 +59,7 @@ export default function Taskbar() {
           >
             <div className="relative w-5 h-5">
 
-               <Image src="/images/logo.png" alt="OSIS" fill className="object-contain border-[1.5px] border-[#003566]" />
+               <Image src="/images/logo.png" alt="OSIS" fill className="object-contain border-[1.5px] border-[#003566] rounded-sm" />
             </div>
             
             <span className="text-lg text-[#000814] hidden sm:block">
@@ -68,10 +84,6 @@ export default function Taskbar() {
 
       </nav>
       
-      {/* SPACER KHUSUS MOBILE
-        Karena taskbar di HP ada di atas (fixed), konten halaman akan ketutup taskbar.
-        Spacer ini mendorong konten ke bawah setinggi taskbar (h-12 = 3rem).
-      */}
       <div className="h-12 w-full md:hidden"></div>
     </div>
   );
