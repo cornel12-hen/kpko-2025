@@ -39,7 +39,7 @@ export default function RootLayout({
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute opacity-20 -top-[16%] -left-[8%] w-[40%] h-[40%] rounded-full bg-[#003566] blur-[150px]" />
             <div className="absolute opacity-20 top-[40%] -right-[10%] w-[40%] h-[40%] rounded-full bg-[#FFD60A] blur-[120px]" />
-            <Image
+            {/* <Image
               src="/images/Group 127.svg"
               alt="Element1"
               width={250}
@@ -66,7 +66,7 @@ export default function RootLayout({
               width={250}
               height={250}
               className="absolute bottom-[-11%] right-[-6%] -scale-x-100 max-lg:hidden"
-            />
+            /> */}
             <Image
               src="/images/Star.svg"
               alt="Element1"
