@@ -41,7 +41,7 @@ export default async function DashboardPage() {
             
             <h2 className="text-xl text-[#000814]">{dataSiswa.nama}</h2>
             <p className="text-lg text-gray-500">{dataSiswa.kelas}</p>
-            <div className="  text-gray-400 font-mono">NIS: {dataSiswa.nis}</div>
+            <div className="  text-gray-400 font-mono">{dataSiswa.nis}</div>
 
             <div className="mt-6 pt-6 border-t border-gray-100">
               <p className="text-sm text-gray-600 mb-2">Status Pemilihan:</p>
