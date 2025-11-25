@@ -27,13 +27,12 @@ const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
 type CsvRow = {
   nis: string;
   nama: string;
-  kelas: string;
   token: string;
 };
 
 async function seedUsers() {
   // 3. Baca File CSV
-  const csvFilePath = path.resolve(process.cwd(), 'DataKPKO_AllSiswa.csv'); // Pastikan nama file sesuai
+  const csvFilePath = path.resolve(process.cwd(), 'Data_NIP_guru.csv'); // Pastikan nama file sesuai
   
   if (!fs.existsSync(csvFilePath)) {
     console.error(`❌ File tidak ditemukan: ${csvFilePath}`);
@@ -61,7 +60,7 @@ async function seedUsers() {
 
   // 5. Loop setiap siswa
   for (const row of data) {
-    const { nis, nama, kelas, token } = row;
+    const { nis, nama, token } = row;
 
     if (!nis || !token) {
       console.warn(`⚠️  Skip baris: Data tidak lengkap (NIS: ${nis})`);
@@ -80,7 +79,7 @@ async function seedUsers() {
         email: emailPalsu,
         password: token,
         email_confirm: true, // Langsung verifikasi email
-        user_metadata: { nis, nama, kelas }, // Simpan metadata opsional
+        user_metadata: { nis, nama }, // Simpan metadata opsional
       });
 
       if (authError) {
@@ -98,7 +97,7 @@ async function seedUsers() {
           id: userId, // PENTING: ID ini harus sama dengan Auth ID
           nis: nis,
           nama: nama,
-          kelas: kelas,
+          kelas: 'Guru dan Staf',
           sudah_vote: false,
         });
 
