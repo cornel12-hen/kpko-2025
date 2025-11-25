@@ -86,7 +86,7 @@ export const config = {
      * PENTING: Kita hapus pengecualian 'login' agar middleware tetap jalan di sana
      * untuk melakukan redirect jika user sudah login.
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|manifest.json).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|manifest.json|images|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };
 
