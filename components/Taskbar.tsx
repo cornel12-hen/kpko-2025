@@ -63,7 +63,7 @@ export default function Taskbar() {
             </div>
             
             <span className="text-lg text-[#000814] hidden sm:block">
-              Start
+              OSISTEL
             </span>
           </button>
 
